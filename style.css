@@ -400,9 +400,6 @@ body.dark .btn-ghost-link:hover {
   box-shadow: 0 5px 14px rgba(5, 150, 105, 0.4);
 }
 
-margin-left: auto;
-flex-shrink: 0;
-
 .btn-ghost {
   width: 38px;
   height: 38px;
@@ -2700,6 +2697,207 @@ body.dark .pricing-card--dark {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ================================================================
+   HERO TRUST CHIPS & FREE BADGES
+   ================================================================ */
+.hero-free-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 50px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #059669;
+  margin-bottom: 12px;
+  letter-spacing: 0.2px;
+}
+
+body.dark .hero-free-pill {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.free-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 16px;
+  margin-top: 14px;
+}
+
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--surface);
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-xs);
+}
+
+.chip-check {
+  color: #10b981;
+  font-weight: 800;
+}
+
+/* ================================================================
+   FAQ & SEO KNOWLEDGE SECTION
+   ================================================================ */
+.faq-section {
+  padding: 70px 24px 80px;
+  background: var(--surface-2);
+  border-top: 1px solid var(--border);
+}
+
+.faq-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-badge {
+  background: rgba(16, 185, 129, 0.1);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+body.dark .faq-badge {
+  color: #34d399;
+}
+
+.faq-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-xs);
+}
+
+.faq-item[open] {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.08);
+}
+
+body.dark .faq-item[open] {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question:hover {
+  color: #059669;
+}
+
+body.dark .faq-question:hover {
+  color: #34d399;
+}
+
+.faq-chevron {
+  font-size: 16px;
+  color: var(--text-muted);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.faq-item[open] .faq-chevron {
+  transform: rotate(180deg);
+  color: #059669;
+}
+
+.faq-answer {
+  padding: 0 22px 20px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-2);
+  border-top: 1px solid rgba(226, 232, 240, 0.5);
+  padding-top: 14px;
+}
+
+body.dark .faq-answer {
+  border-top-color: rgba(51, 65, 85, 0.5);
+}
+
+.faq-cta-box {
+  margin-top: 40px;
+  padding: 28px 32px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(5, 150, 105, 0.03) 100%);
+  border: 1.5px dashed rgba(16, 185, 129, 0.35);
+  border-radius: var(--r-xl);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.faq-cta-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.faq-cta-sub {
   font-size: 13px;
   color: var(--text-muted);
 }

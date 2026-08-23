@@ -751,13 +751,29 @@ function setLoading(btnId, loading) {
   btn.style.pointerEvents = loading ? 'none' : '';
 }
 
-// ── Smooth Scroll Handler for Solutions ───────────────────────────
+// ── Smooth Scroll Handlers ─────────────────────────────────────────
 function scrollToSolutions(e) {
   if (e) e.preventDefault();
   const target = document.getElementById('solutionsSection');
-  if (target) {
-    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToDocs(e) {
+  if (e) e.preventDefault();
+  const target = document.getElementById('docsSection');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToPricing(e) {
+  if (e) e.preventDefault();
+  const target = document.getElementById('pricingSection');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function scrollToFaq(e) {
+  if (e) e.preventDefault();
+  const target = document.getElementById('faqSection');
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ── Keyboard shortcuts ────────────────────────────────────────────
