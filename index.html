@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AwenQR — Next-Gen QR Code & Dynamic Redirect Suite</title>
+  <meta name="description"
+    content="Create free custom QR codes for URLs, WiFi, vCard, WhatsApp and 4-color dynamic gradient redirects with AwenQR." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     HEADER NAV (FLY.IO STYLE FLOATING ISLAND PILL)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <header class="site-header">
+    <div class="site-header__inner">
+      <!-- LOGO -->
+      <a href="#" class="logo">
+        <svg width="34" height="34" viewBox="0 0 30 30" fill="none">
+          <rect x="2" y="2" width="11" height="11" rx="3" fill="#059669" />
+          <rect x="5" y="5" width="5" height="5" rx="1" fill="#fff" />
+          <rect x="17" y="2" width="11" height="11" rx="3" fill="#059669" />
+          <rect x="20" y="5" width="5" height="5" rx="1" fill="#fff" />
+          <rect x="2" y="17" width="11" height="11" rx="3" fill="#059669" />
+          <rect x="5" y="20" width="5" height="5" rx="1" fill="#fff" />
+          <rect x="17" y="17" width="5" height="5" rx="1.5" fill="#059669" />
+          <rect x="23" y="17" width="5" height="5" rx="1.5" fill="#059669" />
+          <rect x="17" y="23" width="5" height="5" rx="1.5" fill="#059669" />
+          <rect x="23" y="23" width="5" height="5" rx="1.5" fill="#059669" />
+        </svg>
+        <span class="logo__text">Awen<strong>QR</strong></span>
+      </a>
+
+      <!-- CENTERED FLY.IO FLOATING PILL ISLAND -->
+      <nav class="fly-nav-island">
+        <a href="javascript:void(0)" class="fly-nav-item active" id="navFreeGen" onclick="switchNavMode('url')">Free Generator</a>
+        <a href="javascript:void(0)" class="fly-nav-item" id="navDynamicGen" onclick="switchNavMode('dynamic')">Dynamic QR ⚡</a>
+        <a href="javascript:void(0)" class="fly-nav-item" id="navSolutions" onclick="scrollToSolutions(event)">Solutions</a>
+        <a href="javascript:void(0)" class="fly-nav-item" id="navDocs" onclick="scrollToDocs(event)">Docs</a>
+        <a href="javascript:void(0)" class="fly-nav-item" id="navPricing" onclick="scrollToPricing(event)">Pricing</a>
+      </nav>
+
+      <!-- RIGHT CAPSULE ACTIONS -->
+      <div class="header-actions">
+        <button class="btn-ghost" id="themeBtn" onclick="toggleTheme()" title="Toggle Theme">
+          <svg id="iconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div class="fly-action-capsule">
+          <button class="btn-ghost-link">Log in</button>
+          <button class="btn-primary-pill">Sign up free</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• 
+    
+â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â• â•  -->
+  <div class="page-hero">
+    <div class="page-hero__inner">
+      <h1 class="page-hero__title"><span class="page-hero__title-gradient">QR Code Generator</span></h1>
+      <p class="page-hero__sub">Create, customize & download QR codes in seconds — no account needed</p>
+    </div>
+  </div>
+
+  <!-- TYPE SELECTOR TAB BAR   -->
+  <div class="type-rail-wrap">
+    <div class="type-rail" id="typeRail">
+
+      <button class="type-pill active" data-type="url">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+          <path
+            d="M12.232 4.232a2.5 2.5 0 013.536 3.536l-1.225 1.224a.75.75 0 001.061 1.06l1.224-1.224a4 4 0 00-5.656-5.656l-3 3a4 4 0 00.225 5.865.75.75 0 00.977-1.138 2.5 2.5 0 01-.142-3.667l3-3z" />
+          <path
+            d="M11.603 7.963a.75.75 0 00-.977 1.138 2.5 2.5 0 01.142 3.667l-3 3a2.5 2.5 0 01-3.536-3.536l1.225-1.224a.75.75 0 00-1.061-1.06l-1.224 1.224a4 4 0 105.656 5.656l3-3a4 4 0 00-.225-5.865z" />
+        </svg>
+        URL / Website
+      </button>
+
+      <button class="type-pill" data-type="text">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+            clip-rule="evenodd" />
+        </svg>
+        Plain Text
+      </button>
+
+      <button class="type-pill" data-type="vcard">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+        </svg>
+        Contact (vCard)
+      </button>
+
+      <button class="type-pill" data-type="email">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+        </svg>
+        Email
+      </button>
+
+      <button class="type-pill" data-type="phone">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+          <path
+            d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+        </svg>
+        Phone Call
+      </button>
+
+      <button class="type-pill" data-type="sms">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z"
+            clip-rule="evenodd" />
+        </svg>
+        SMS
+      </button>
+
+      <button class="type-pill" data-type="whatsapp">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 2.106.549 4.083 1.509 5.8L0 24l6.336-1.484A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.8a9.759 9.759 0 01-5.012-1.381l-.36-.214-3.727.874.937-3.624-.234-.374A9.762 9.762 0 012.2 12C2.2 6.584 6.584 2.2 12 2.2S21.8 6.584 21.8 12 17.416 21.8 12 21.8z" />
+        </svg>
+        WhatsApp
+      </button>
+
+      <button class="type-pill" data-type="wifi">
+        <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M17.778 8.222c-4.296-4.296-11.26-4.296-15.556 0A1 1 0 010 7.808a1 1 0 01.293-.706c5.076-5.077 13.315-5.077 18.392 0a1 1 0 01-1.414 1.414zM14.95 11.05a7 7 0 00-9.9 0 1 1 0 01-1.414-1.414 9 9 0 0112.728 0 1 1 0 01-1.414 1.414zM12.12 13.88a3 3 0 00-4.242 0 1 1 0 01-1.415-1.415 5 5 0 017.072 0 1 1 0 01-1.415 1.415zM11 16a1 1 0 11-2 0 1 1 0 012 0z"
+            clip-rule="evenodd" />
+        </svg>
+        Wi-Fi
+      </button>
+
+    </div>
+  </div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     MAIN WORKSPACE
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <main class="workspace">
+    <div class="workspace__inner">
+
+      <!-- ── LEFT COLUMN ── -->
+      <div class="left-col">
+
+        <!-- CARD 1: INPUT CONTENT -->
+        <div class="card">
+          <div class="card__head">
+            <span class="step-badge">1</span>
+            <h2 class="card__title" id="cardTitle">Enter Website URL</h2>
+
+          </div>
+          <div class="card__body">
+
+            <!-- URL -->
+            <div id="form-url" class="qr-form is-active">
+              <div class="field">
+                <label for="f-url" class="field__label">Website URL</label>
+                <input id="f-url" type="url" class="field__input" placeholder="https://example.com"
+                  autocomplete="off" />
+              </div>
+            </div>
+
+            <!-- DYNAMIC QR CODE -->
+            <div id="form-dynamic" class="qr-form">
+              <div class="dynamic-banner">
+                <div class="dynamic-badge">⚡ DYNAMIC REDIRECT ENABLED</div>
+                <p class="dynamic-desc">Dynamic QR Codes let you change the target URL anytime without re-printing!</p>
+              </div>
+              <div class="field">
+                <label for="f-dyn-name" class="field__label">Campaign Title / Short Name</label>
+                <input id="f-dyn-name" type="text" class="field__input" placeholder="My Promo Campaign 2026" />
+              </div>
+              <div class="field">
+                <label for="f-dyn-url" class="field__label">Target Redirect Destination URL</label>
+                <input id="f-dyn-url" type="url" class="field__input" placeholder="https://mywebsite.com/landing" />
+                <span class="field__hint">Scans: <strong>142 scans tracked</strong> · Shortlink: <code
+                    id="dynShortlink">https://qr.page/x9K2a</code></span>
+              </div>
+            </div>
+
+
+
+            <!-- TEXT -->
+            <div id="form-text" class="qr-form">
+              <div class="field">
+                <label for="f-text" class="field__label">Text Content</label>
+                <textarea id="f-text" class="field__input field__textarea"
+                  placeholder="Enter any text content”¦"></textarea>
+              </div>
+            </div>
+
+            <!-- VCARD -->
+            <div id="form-vcard" class="qr-form">
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-vfn" class="field__label">First Name *</label>
+                  <input id="f-vfn" type="text" class="field__input" placeholder="John" />
+                </div>
+                <div class="field">
+                  <label for="f-vln" class="field__label">Last Name</label>
+                  <input id="f-vln" type="text" class="field__input" placeholder="Doe" />
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-vorg" class="field__label">Organization</label>
+                  <input id="f-vorg" type="text" class="field__input" placeholder="Acme Inc." />
+                </div>
+                <div class="field">
+                  <label for="f-vphone" class="field__label">Phone</label>
+                  <input id="f-vphone" type="tel" class="field__input" placeholder="+91 98765 43210" />
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-vemail" class="field__label">Email</label>
+                  <input id="f-vemail" type="email" class="field__input" placeholder="john@example.com" />
+                </div>
+                <div class="field">
+                  <label for="f-vweb" class="field__label">Website</label>
+                  <input id="f-vweb" type="url" class="field__input" placeholder="https://”¦" />
+                </div>
+              </div>
+            </div>
+
+            <!-- EMAIL -->
+            <div id="form-email" class="qr-form">
+              <div class="field">
+                <label for="f-eto" class="field__label">Recipient Email *</label>
+                <input id="f-eto" type="email" class="field__input" placeholder="recipient@example.com" />
+              </div>
+              <div class="field">
+                <label for="f-esub" class="field__label">Subject</label>
+                <input id="f-esub" type="text" class="field__input" placeholder="Email subject”¦" />
+              </div>
+              <div class="field">
+                <label for="f-ebody" class="field__label">Message Body</label>
+                <textarea id="f-ebody" class="field__input field__textarea field__textarea--sm"
+                  placeholder="Email body”¦"></textarea>
+              </div>
+            </div>
+
+            <!-- PHONE -->
+            <div id="form-phone" class="qr-form">
+              <div class="field">
+                <label for="f-phone" class="field__label">Phone Number *</label>
+                <input id="f-phone" type="tel" class="field__input" placeholder="+91 98765 43210" />
+              </div>
+            </div>
+
+            <!-- SMS -->
+            <div id="form-sms" class="qr-form">
+              <div class="field">
+                <label for="f-sphone" class="field__label">Phone Number *</label>
+                <input id="f-sphone" type="tel" class="field__input" placeholder="+91 98765 43210" />
+              </div>
+              <div class="field">
+                <label for="f-sbody" class="field__label">Message Text</label>
+                <textarea id="f-sbody" class="field__input field__textarea field__textarea--sm"
+                  placeholder="SMS message”¦"></textarea>
+              </div>
+            </div>
+
+            <!-- WHATSAPP -->
+            <div id="form-whatsapp" class="qr-form">
+              <div class="field">
+                <label for="f-waphone" class="field__label">WhatsApp Number (with country code) *</label>
+                <input id="f-waphone" type="tel" class="field__input" placeholder="919876543210" />
+                <span class="field__hint">No +, no spaces. Example: 919876543210</span>
+              </div>
+              <div class="field">
+                <label for="f-wamsg" class="field__label">Pre-filled Message</label>
+                <textarea id="f-wamsg" class="field__input field__textarea field__textarea--sm"
+                  placeholder="Hello! I got your QR code”¦"></textarea>
+              </div>
+            </div>
+
+            <!-- WIFI -->
+            <div id="form-wifi" class="qr-form">
+              <div class="field">
+                <label for="f-wssid" class="field__label">Network Name (SSID) *</label>
+                <input id="f-wssid" type="text" class="field__input" placeholder="MyHomeWiFi" />
+              </div>
+              <div class="field">
+                <label for="f-wpass" class="field__label">Password</label>
+                <input id="f-wpass" type="text" class="field__input" placeholder="Network password”¦" />
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-wsec" class="field__label">Security</label>
+                  <select id="f-wsec" class="field__input field__select">
+                    <option value="WPA">WPA / WPA2 / WPA3</option>
+                    <option value="WEP">WEP</option>
+                    <option value="nopass">None (Open)</option>
+                  </select>
+                </div>
+                <div class="field field--check">
+                  <label class="check-label">
+                    <input type="checkbox" id="f-whidden" class="check-input" />
+                    <span>Hidden SSID</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /card__body -->
+        </div><!-- /card -->
+
+        <!-- CARD 2: CUSTOMIZE -->
+        <div class="card card--mt">
+          <div class="card__head">
+            <span class="step-badge">2</span>
+            <h2 class="card__title">Customize Design</h2>
+          </div>
+          <div class="card__body card__body--no-pt">
+
+            <!-- CUSTOMIZE TABS -->
+            <div class="ctabs">
+              <button class="ctab is-active" data-ctab="colors">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a7 7 0 1 0 10 10" />
+                </svg>
+                Colors & Themes
+              </button>
+              <button class="ctab" data-ctab="logo">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+                Logo & Brand
+              </button>
+              <button class="ctab" data-ctab="quality">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+                Export Quality
+              </button>
+            </div>
+
+            <!-- TAB: COLORS -->
+            <div id="ctab-colors" class="ctab-panel is-active">
+              <div id="dynamicGradientsSection" style="display: none;">
+                <label class="field__label" style="margin-bottom: 8px; display: block;">⚡ 20 Dynamic 4-Color Gradient
+                  Themes</label>
+                <div class="gradient-presets-grid" id="gradientPresets">
+                  <button class="gradient-chip" data-grad="solid" style="background: #2563eb;"
+                    title="Solid Color">Solid</button>
+                  <button class="gradient-chip active" data-grad="sunset"
+                    style="background: linear-gradient(135deg, #00e5ff, #2979ff, #aa00ff, #ff1744);"
+                    title="1. Sunset Spectrum"></button>
+                  <button class="gradient-chip" data-grad="purple-pink"
+                    style="background: linear-gradient(135deg, #7c4dff, #e040fb, #ff4081, #ff9100);"
+                    title="2. Cosmic Purple"></button>
+                  <button class="gradient-chip" data-grad="neon-cyan"
+                    style="background: linear-gradient(135deg, #00e676, #00b0ff, #651fff, #3d5afe);"
+                    title="3. Cyber Neon"></button>
+                  <button class="gradient-chip" data-grad="golden-fire"
+                    style="background: linear-gradient(135deg, #ffea00, #ff9100, #ff3d00, #dd2c00);"
+                    title="4. Golden Blaze"></button>
+                  <button class="gradient-chip" data-grad="emerald"
+                    style="background: linear-gradient(135deg, #aeea00, #00e676, #00bfa5, #00838f);"
+                    title="5. Emerald Forest"></button>
+                  <button class="gradient-chip" data-grad="aurora"
+                    style="background: linear-gradient(135deg, #00f2fe, #4facfe, #00c6ff, #0072ff);"
+                    title="6. Aurora Borealis"></button>
+                  <button class="gradient-chip" data-grad="tropical"
+                    style="background: linear-gradient(135deg, #ff0844, #ffb199, #f12711, #f5af19);"
+                    title="7. Tropical Dusk"></button>
+                  <button class="gradient-chip" data-grad="berry"
+                    style="background: linear-gradient(135deg, #b92b27, #1565c0, #8e24aa, #d81b60);"
+                    title="8. Berry Sorbet"></button>
+                  <button class="gradient-chip" data-grad="ocean"
+                    style="background: linear-gradient(135deg, #02aab0, #00cdac, #0072ff, #00c6ff);"
+                    title="9. Ocean Deep"></button>
+                  <button class="gradient-chip" data-grad="phoenix"
+                    style="background: linear-gradient(135deg, #f857a6, #ff5858, #ff9966, #ff5e62);"
+                    title="10. Flaming Phoenix"></button>
+                  <button class="gradient-chip" data-grad="violet"
+                    style="background: linear-gradient(135deg, #30cfd0, #330867, #7f00ff, #e100ff);"
+                    title="11. Midnight Violet"></button>
+                  <button class="gradient-chip" data-grad="citrus"
+                    style="background: linear-gradient(135deg, #f7971e, #ffd200, #85d700, #12d800);"
+                    title="12. Citrus Burst"></button>
+                  <button class="gradient-chip" data-grad="candy"
+                    style="background: linear-gradient(135deg, #f107a3, #7b2ff7, #00c6ff, #0072ff);"
+                    title="13. Electric Candy"></button>
+                  <button class="gradient-chip" data-grad="mystic"
+                    style="background: linear-gradient(135deg, #50cc7f, #f5d100, #ff007f, #7f00ff);"
+                    title="14. Mystic Haze"></button>
+                  <button class="gradient-chip" data-grad="gold"
+                    style="background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7);"
+                    title="15. Royal Gold"></button>
+                  <button class="gradient-chip" data-grad="cyberpunk"
+                    style="background: linear-gradient(135deg, #ff007f, #00f6ff, #9b51e0, #ff0055);"
+                    title="16. Cyberpunk Neon"></button>
+                  <button class="gradient-chip" data-grad="peach"
+                    style="background: linear-gradient(135deg, #ff9a9e, #fecfef, #a1c4fd, #c2e9fb);"
+                    title="17. Peach Breeze"></button>
+                  <button class="gradient-chip" data-grad="lava"
+                    style="background: linear-gradient(135deg, #eb3349, #f45c43, #eaafc8, #654ea3);"
+                    title="18. Volcano Lava"></button>
+                  <button class="gradient-chip" data-grad="mint"
+                    style="background: linear-gradient(135deg, #00b4db, #0083b0, #11998e, #38ef7d);"
+                    title="19. Mint Chocolate"></button>
+                  <button class="gradient-chip" data-grad="ultraviolet"
+                    style="background: linear-gradient(135deg, #654ea3, #eaafc8, #d53369, #cbad6d);"
+                    title="20. Ultra Violet"></button>
+                </div>
+              </div>
+
+              <div id="solidColorPickers">
+                <div class="color-row" style="margin-top: 15px;">
+                  <div class="color-item">
+                    <label class="field__label">Foreground</label>
+                    <div class="color-ctrl">
+                      <input type="color" id="c-fg" value="#000000" class="color-swatch" />
+                      <input type="text" id="h-fg" value="#000000" maxlength="7" class="hex-field" />
+                    </div>
+                  </div>
+                  <div class="color-item">
+                    <label class="field__label">Background</label>
+                    <div class="color-ctrl">
+                      <input type="color" id="c-bg" value="#ffffff" class="color-swatch" />
+                      <input type="text" id="h-bg" value="#ffffff" maxlength="7" class="hex-field" />
+                    </div>
+                  </div>
+                </div>
+                <div class="color-preview-strip">
+                  <span id="colorPreviewFg" class="preview-chip" style="background:#000000"></span>
+                  <svg width="20" height="10" viewBox="0 0 20 10">
+                    <path d="M0 5h18m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none"
+                      stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  <span id="colorPreviewBg" class="preview-chip preview-chip--bg" style="background:#ffffff"></span>
+                  <span class="preview-label">QR preview colors</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB: LOGO -->
+            <div id="ctab-logo" class="ctab-panel">
+              <p class="field__label" style="margin-bottom:10px">Add a logo to center of QR code</p>
+              <div class="logo-grid" id="logoGrid">
+                <button class="logo-chip is-active" data-logo="none" title="No logo">—</button>
+                <button class="logo-chip" data-logo="globe" title="Globe">ðŸŒ</button>
+                <button class="logo-chip" data-logo="mail" title="Email">âœ‰ï¸</button>
+                <button class="logo-chip" data-logo="phone" title="Phone">📞</button>
+                <button class="logo-chip" data-logo="chat" title="Chat">💬</button>
+                <button class="logo-chip" data-logo="wifi" title="Wi-Fi">ðŸ“¶</button>
+                <button class="logo-chip" data-logo="star" title="Star">â­</button>
+                <button class="logo-chip" data-logo="heart" title="Heart">â¤ï¸</button>
+              </div>
+              <label class="upload-zone" for="f-logofile">
+                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="3" width="14" height="14" rx="2" />
+                  <path d="M10 7v6M7 10l3-3 3 3" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Upload custom logo</span>
+                <span class="upload-hint" id="uploadHint">PNG, JPG, SVG — max 2MB</span>
+              </label>
+              <input type="file" id="f-logofile" accept="image/*" style="display:none" />
+            </div>
+
+            <!-- TAB: QUALITY -->
+            <div id="ctab-quality" class="ctab-panel">
+              <div class="field-row">
+                <div class="field">
+                  <label for="q-size" class="field__label">Export Resolution</label>
+                  <select id="q-size" class="field__input field__select">
+                    <option value="200">200 Ã— 200 px (Web Small)</option>
+                    <option value="400" selected>400 Ã— 400 px (Standard)</option>
+                    <option value="600">600 Ã— 600 px (High Res)</option>
+                    <option value="1000">1000 Ã— 1000 px (Print)</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="q-ecl" class="field__label">Error Correction</label>
+                  <select id="q-ecl" class="field__input field__select">
+                    <option value="L">Low — 7%</option>
+                    <option value="M">Medium — 15%</option>
+                    <option value="Q">High — 25%</option>
+                    <option value="H" selected>Max — 30% (Best with logo)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /card customize -->
+
+      </div><!-- /left-col -->
+
+      <!-- ── RIGHT COLUMN (STICKY PREVIEW) ── -->
+      <div class="right-col">
+        <div class="preview-card" id="previewCard">
+
+          <!-- HEADER -->
+          <div class="preview-card__head">
+            <div class="live-indicator">
+              <span class="live-dot"></span>
+              Live Preview
+            </div>
+            <button class="icon-btn" onclick="resetAll()" title="Reset">
+              <svg width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z"
+                  clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- QR CANVAS -->
+          <div class="qr-display" id="qrDisplay">
+            <div id="qrCanvas"></div>
+          </div>
+
+          <!-- DOWNLOAD BUTTONS -->
+          <div class="dl-stack" style="margin-top: 12px;">
+            <button class="dl-btn dl-btn--primary" id="dlPngBtn" onclick="downloadPNG()">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                  clip-rule="evenodd" />
+              </svg>
+              Download PNG
+            </button>
+            <button class="dl-btn dl-btn--outline" id="dlPdfBtn" onclick="downloadPDF()">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd"
+                  d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z"
+                  clip-rule="evenodd" />
+              </svg>
+              Download PDF
+            </button>
+          </div>
+
+          <!-- SECONDARY ACTIONS -->
+          <div class="secondary-row">
+            <button class="sec-btn" onclick="copyQRImage()">
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+              </svg>
+              Copy Image
+            </button>
+          </div>
+
+        </div><!-- /preview-card -->
+      </div><!-- /right-col -->
+
+    </div><!-- /workspace__inner -->
+  </main>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     TOAST
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="toast-host">
+    <div id="toast" class="toast"></div>
+  </div>
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+     SOLUTIONS & HOW TO USE SECTION (SCROLLABLE ON MAIN PAGE)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="solutionsSection" class="solutions-section">
+    <div class="solutions-section__inner">
+      <div class="solutions-head">
+        <div class="solutions-badge-pill">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          💡 User Guide — How It Works
+        </div>
+        <h2 class="solutions-title">Create Custom QR Codes in 4 Easy Steps</h2>
+        <p class="solutions-subtitle">Easily generate free static QR codes or high-conversion 4-color gradient dynamic QR codes in seconds.</p>
+      </div>
+
+      <!-- 4 STEPS GRID -->
+      <div class="guide-steps-grid">
+        <div class="guide-step">
+          <div class="step-head-row">
+            <span class="step-badge-num">Step 01</span>
+            <div class="step-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+          </div>
+          <h3 class="guide-heading">1. Enter Your Content</h3>
+          <p class="guide-desc">Select what you want to embed: Website Link, Plain Text, Contact Card (vCard), Email, Phone, WhatsApp, or Wi-Fi network details.</p>
+        </div>
+
+        <div class="guide-step">
+          <div class="step-head-row">
+            <span class="step-badge-num">Step 02</span>
+            <div class="step-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+          </div>
+          <h3 class="guide-heading">2. Choose Generator Mode</h3>
+          <p class="guide-desc"><strong>Free Generator:</strong> Classic black & white static QR.<br><strong>Dynamic QR ⚡:</strong> Editable target destination + 20 Telegram-style 4-color gradient themes!</p>
+        </div>
+
+        <div class="guide-step">
+          <div class="step-head-row">
+            <span class="step-badge-num">Step 03</span>
+            <div class="step-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 1 0 10 10"/></svg>
+            </div>
+          </div>
+          <h3 class="guide-heading">3. Customize & Brand</h3>
+          <p class="guide-desc">Select from 20 vibrant 4-color gradient presets, upload your custom brand logo, and adjust print resolution.</p>
+        </div>
+
+        <div class="guide-step">
+          <div class="step-head-row">
+            <span class="step-badge-num">Step 04</span>
+            <div class="step-icon-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </div>
+          </div>
+          <h3 class="guide-heading">4. 1-Click Download</h3>
+          <p class="guide-desc">Instantly download your ready QR code as a High-Resolution PNG Image or print-ready PDF document with 1-click.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+     DOCS SECTION
+  ═══════════════════════════════════════════════ -->
+  <section id="docsSection" class="docs-section">
+    <div class="docs-inner">
+
+      <!-- SECTION HEADER -->
+      <div class="section-head">
+        <div class="section-badge docs-badge">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Developer API & Docs
+        </div>
+        <h2 class="section-title">Integrate in Minutes</h2>
+        <p class="section-subtitle">Generate, customize, and export high-quality QR codes programmatically via a simple REST API.</p>
+      </div>
+
+      <!-- TOP FEATURE STRIP -->
+      <div class="docs-strip">
+        <div class="docs-strip-item">
+          <span class="docs-strip-icon">⚡</span>
+          <span>< 50ms response time</span>
+        </div>
+        <div class="docs-strip-divider"></div>
+        <div class="docs-strip-item">
+          <span class="docs-strip-icon">🌍</span>
+          <span>Global CDN endpoints</span>
+        </div>
+        <div class="docs-strip-divider"></div>
+        <div class="docs-strip-item">
+          <span class="docs-strip-icon">🔒</span>
+          <span>API key authentication</span>
+        </div>
+        <div class="docs-strip-divider"></div>
+        <div class="docs-strip-item">
+          <span class="docs-strip-icon">📦</span>
+          <span>6+ official SDKs</span>
+        </div>
+      </div>
+
+      <!-- CODE EXAMPLE + FEATURE CARDS -->
+      <div class="docs-layout">
+
+        <!-- LEFT: Code Preview -->
+        <div class="docs-code-panel">
+          <div class="code-panel-header">
+            <div class="code-panel-dots">
+              <span class="dot-red"></span><span class="dot-yellow"></span><span class="dot-green"></span>
+            </div>
+            <span class="code-panel-label">GET /v1/create</span>
+            <span class="code-panel-lang">HTTP</span>
+          </div>
+          <pre class="code-block"><span class="code-comment"># Generate a QR code with one line</span>
+<span class="code-method">GET</span> <span class="code-url">https://api.awenqr.com/v1/create</span>
+  <span class="code-key">?data</span>=<span class="code-val">https://yoursite.com</span>
+  <span class="code-key">&amp;size</span>=<span class="code-val">512</span>
+  <span class="code-key">&amp;gradient</span>=<span class="code-val">sunset</span>
+  <span class="code-key">&amp;ecl</span>=<span class="code-val">H</span>
+
+<span class="code-comment"># Response — 200 OK</span>
+{
+  <span class="code-key">"status"</span>: <span class="code-val">"success"</span>,
+  <span class="code-key">"url"</span>: <span class="code-val">"https://cdn.awenqr.com/qr/x9K2a.png"</span>,
+  <span class="code-key">"shortlink"</span>: <span class="code-val">"https://qr.page/x9K2a"</span>,
+  <span class="code-key">"scans"</span>: <span class="code-val">0</span>
+}</pre>
+          <div class="code-panel-footer">
+            <button class="code-copy-btn" onclick="navigator.clipboard.writeText('GET https://api.awenqr.com/v1/create?data=https://yoursite.com&size=512&gradient=sunset&ecl=H')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+              Copy
+            </button>
+          </div>
+        </div>
+
+        <!-- RIGHT: Feature Cards -->
+        <div class="docs-feature-grid">
+
+          <div class="docs-card">
+            <div class="docs-card-icon" style="background: rgba(16,185,129,0.1); color: #10b981;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4 class="docs-card-title">REST API</h4>
+              <p class="docs-card-desc">Simple GET & POST endpoints. Returns PNG, SVG, or PDF. No setup required.</p>
+            </div>
+          </div>
+
+          <div class="docs-card">
+            <div class="docs-card-icon" style="background: rgba(59,130,246,0.1); color: #3b82f6;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div>
+              <h4 class="docs-card-title">SDKs</h4>
+              <p class="docs-card-desc">Official libraries for JS, Node, Python, PHP, Ruby & Go — available on GitHub.</p>
+            </div>
+          </div>
+
+          <div class="docs-card">
+            <div class="docs-card-icon" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <h4 class="docs-card-title">Webhooks</h4>
+              <p class="docs-card-desc">Real-time scan event callbacks. Track geo, device, and time of every scan.</p>
+            </div>
+          </div>
+
+          <div class="docs-card">
+            <div class="docs-card-icon" style="background: rgba(245,158,11,0.1); color: #f59e0b;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <h4 class="docs-card-title">Custom Styling</h4>
+              <p class="docs-card-desc">Pass hex colors, gradient keys, corner radius, logo URLs in each API request.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SDK LANGUAGE PILLS -->
+      <div class="sdk-row">
+        <span class="sdk-label">Official SDKs:</span>
+        <span class="sdk-pill sdk-js">JavaScript</span>
+        <span class="sdk-pill sdk-py">Python</span>
+        <span class="sdk-pill sdk-node">Node.js</span>
+        <span class="sdk-pill sdk-php">PHP</span>
+        <span class="sdk-pill sdk-ruby">Ruby</span>
+        <span class="sdk-pill sdk-go">Go</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+     PRICING SECTION
+  ═══════════════════════════════════════════════ -->
+  <section id="pricingSection" class="pricing-section">
+    <div class="pricing-inner">
+
+      <!-- SECTION HEADER -->
+      <div class="section-head">
+        <div class="section-badge pricing-badge">
+          💎 Simple, Transparent Pricing
+        </div>
+        <h2 class="section-title">Start Free. Scale Smoothly.</h2>
+        <p class="section-subtitle">No hidden fees. No credit card required to start. Cancel anytime.</p>
+      </div>
+
+      <!-- PRICING CARDS -->
+      <div class="pricing-grid">
+
+        <!-- STARTER -->
+        <div class="pricing-card">
+          <div class="pricing-plan-name">Starter</div>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">$0</span>
+            <span class="pricing-period">/ forever</span>
+          </div>
+          <p class="pricing-tagline">Perfect for individuals & personal projects.</p>
+          <hr class="pricing-divider">
+          <ul class="pricing-features">
+            <li><span class="pf-check pf-check--yes">✓</span> Unlimited Static QR Codes</li>
+            <li><span class="pf-check pf-check--yes">✓</span> 3 Dynamic QR Redirects</li>
+            <li><span class="pf-check pf-check--yes">✓</span> PNG & PDF Downloads</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Basic Analytics</li>
+            <li><span class="pf-check pf-check--no">✗</span> Custom Branding</li>
+            <li><span class="pf-check pf-check--no">✗</span> API Access</li>
+          </ul>
+          <button class="pricing-btn pricing-btn--ghost">Get Started Free</button>
+        </div>
+
+        <!-- PRO (POPULAR) -->
+        <div class="pricing-card pricing-card--popular">
+          <div class="popular-badge">MOST POPULAR</div>
+          <div class="pricing-plan-name">Pro</div>
+          <div class="pricing-price-row">
+            <span class="pricing-amount">$12</span>
+            <span class="pricing-period">/ month</span>
+          </div>
+          <p class="pricing-tagline">For teams, marketers & growing businesses.</p>
+          <hr class="pricing-divider pricing-divider--green">
+          <ul class="pricing-features">
+            <li><span class="pf-check pf-check--yes">✓</span> Everything in Starter</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Unlimited Dynamic QR Links</li>
+            <li><span class="pf-check pf-check--yes">✓</span> 20+ Gradient Color Themes</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Vector PDF Export</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Real-time Geo Analytics</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Full API Access</li>
+          </ul>
+          <button class="pricing-btn pricing-btn--primary">Upgrade to Pro</button>
+        </div>
+
+        <!-- ENTERPRISE -->
+        <div class="pricing-card pricing-card--dark">
+          <div class="pricing-plan-name pricing-plan-name--light">Enterprise</div>
+          <div class="pricing-price-row">
+            <span class="pricing-amount pricing-amount--light">Custom</span>
+            <span class="pricing-period pricing-period--light">/ tailored</span>
+          </div>
+          <p class="pricing-tagline pricing-tagline--light">For large teams needing custom infrastructure.</p>
+          <hr class="pricing-divider pricing-divider--blue">
+          <ul class="pricing-features pricing-features--light">
+            <li><span class="pf-check pf-check--yes">✓</span> Everything in Pro</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Multi-User Collaboration</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Dedicated API Endpoint</li>
+            <li><span class="pf-check pf-check--yes">✓</span> Custom Domain Branding</li>
+            <li><span class="pf-check pf-check--yes">✓</span> SLA & Uptime Guarantee</li>
+            <li><span class="pf-check pf-check--yes">✓</span> 24/7 Priority Support</li>
+          </ul>
+          <button class="pricing-btn pricing-btn--outline">Contact Sales</button>
+        </div>
+
+      </div>
+
+      <!-- MONEY-BACK NOTE -->
+      <div class="pricing-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        30-day money-back guarantee · No contracts · Cancel anytime
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ───────────────────────────────────────────────────────────────
+     FOOTER (PROFESSIONAL DARK SAAS)
+  ─────────────────────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="footer-top-accent"></div>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        
+        <!-- BRAND COL -->
+        <div class="footer-col footer-col--brand">
+          <a href="#" class="footer-logo">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+              <rect x="2" y="2" width="11" height="11" rx="3" fill="#10b981" />
+              <rect x="5" y="5" width="5" height="5" rx="1" fill="#0f172a" />
+              <rect x="17" y="2" width="11" height="11" rx="3" fill="#10b981" />
+              <rect x="20" y="5" width="5" height="5" rx="1" fill="#0f172a" />
+              <rect x="2" y="17" width="11" height="11" rx="3" fill="#10b981" />
+              <rect x="5" y="20" width="5" height="5" rx="1" fill="#0f172a" />
+              <rect x="17" y="17" width="5" height="5" rx="1.5" fill="#10b981" />
+              <rect x="23" y="17" width="5" height="5" rx="1.5" fill="#10b981" />
+              <rect x="17" y="23" width="5" height="5" rx="1.5" fill="#10b981" />
+              <rect x="23" y="23" width="5" height="5" rx="1.5" fill="#10b981" />
+            </svg>
+            <span class="footer-logo-text">Awen<strong>QR</strong></span>
+          </a>
+          <p class="footer-brand-desc">Next-Gen QR Code & Dynamic Redirect Suite. Create, customize, and export high-conversion vector QR codes instantly.</p>
+          <div class="footer-status-pill">
+            <span class="status-dot"></span>
+            All Systems Operational
+          </div>
+        </div>
+
+        <!-- COL 2: PRODUCTS -->
+        <div class="footer-col">
+          <h4 class="footer-col-title"><span class="col-title-dot">●</span> PRODUCTS</h4>
+          <ul class="footer-menu">
+            <li><a href="javascript:void(0)" onclick="switchNavMode('url')">Free Generator</a></li>
+            <li><a href="javascript:void(0)" onclick="switchNavMode('dynamic')">Dynamic QR Codes ⚡</a></li>
+            <li><a href="javascript:void(0)" onclick="switchNavMode('dynamic')">20 Gradient Themes</a></li>
+            <li><a href="javascript:void(0)">Vector PDF Export</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 3: SOLUTIONS -->
+        <div class="footer-col">
+          <h4 class="footer-col-title"><span class="col-title-dot">●</span> SOLUTIONS</h4>
+          <ul class="footer-menu">
+            <li><a href="#solutionsSection" onclick="scrollToSolutions(event)">Marketing & Campaigns</a></li>
+            <li><a href="javascript:void(0)">Digital vCard Contacts</a></li>
+            <li><a href="javascript:void(0)">Wi-Fi Network QR</a></li>
+            <li><a href="javascript:void(0)">WhatsApp Direct Chat</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 4: LEGAL & SUPPORT -->
+        <div class="footer-col">
+          <h4 class="footer-col-title"><span class="col-title-dot">●</span> RESOURCES</h4>
+          <ul class="footer-menu">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">API Documentation</a></li>
+            <li><a href="#">Contact Support</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- SEPARATED FULL-WIDTH BOTTOM BAR -->
+      <div class="footer-bottom-bar">
+        <span class="copyright-text">© 2026 AwenQR Inc. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookies Settings</a>
+          <a href="#">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="qrcode.min.js"></script>
+  <script src="jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
