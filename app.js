@@ -4,8 +4,8 @@
 'use strict';
 
 // ── State ────────────────────────────────────────────────────────
-let activeType    = 'url';
-let lastQRData    = '';
+let activeType = 'url';
+let lastQRData = '';
 let activeLogoKey = 'none';
 let customLogoURL = null;
 
@@ -17,15 +17,15 @@ const LOGO_ICONS = {
 const ECL_LABELS = { L: '7% ECL', M: '15% ECL', Q: '25% ECL', H: '30% ECL (Max)' };
 
 const CARD_TITLES = {
-  url:      'Enter Website URL',
-  dynamic:  '⚡ Dynamic Colorful QR Code (Editable Link & Analytics)',
-  text:     'Enter Text Content',
-  vcard:    'Enter Contact Details (vCard)',
-  email:    'Enter Email Details',
-  phone:    'Enter Phone Number',
-  sms:      'Enter SMS Details',
+  url: 'Enter Website URL',
+  dynamic: '⚡ Dynamic Colorful QR Code (Editable Link & Analytics)',
+  text: 'Enter Text Content',
+  vcard: 'Enter Contact Details (vCard)',
+  email: 'Enter Email Details',
+  phone: 'Enter Phone Number',
+  sms: 'Enter SMS Details',
   whatsapp: 'Enter WhatsApp Details',
-  wifi:     'Enter Wi-Fi Network Details',
+  wifi: 'Enter Wi-Fi Network Details',
 };
 
 let isDynamicGlobalMode = false;
@@ -45,7 +45,7 @@ function toggleGlobalDynamic(enabled) {
   // Set default colors based on mode
   if (!enabled) {
     activeGradientKey = 'solid';
-    if (gradSec)  gradSec.style.display  = 'none';
+    if (gradSec) gradSec.style.display = 'none';
     if (solidSec) solidSec.style.display = 'block';
     document.querySelectorAll('.gradient-chip').forEach(b => b.classList.remove('active'));
     document.querySelector('.gradient-chip[data-grad="solid"]')?.classList.add('active');
@@ -53,7 +53,7 @@ function toggleGlobalDynamic(enabled) {
     setColor('c-bg', 'h-bg', 'colorPreviewBg', '#ffffff');
   } else {
     activeGradientKey = 'sunset';
-    if (gradSec)  gradSec.style.display  = 'block';
+    if (gradSec) gradSec.style.display = 'block';
     if (solidSec) solidSec.style.display = 'none';
     document.querySelectorAll('.gradient-chip').forEach(b => b.classList.remove('active'));
     document.querySelector('.gradient-chip[data-grad="sunset"]')?.classList.add('active');
@@ -73,7 +73,7 @@ function setColor(pickerId, hexId, previewId, color) {
 
 // ── Visual-only nav highlight (no form/scroll side-effects) ───────
 function setNavActive(activeId) {
-  ['navFreeGen','navDynamicGen','navSolutions','navDocs','navPricing'].forEach(id => {
+  ['navFreeGen', 'navDynamicGen', 'navSolutions', 'navDocs', 'navPricing'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.classList.toggle('active', id === activeId);
   });
@@ -142,8 +142,8 @@ function scrollToPricing(event) {
 // Uses setNavActive ONLY — zero form/scroll side-effects
 (function initScrollSpy() {
   const SECTIONS = [
-    { id: 'pricingSection',   navId: 'navPricing'   },
-    { id: 'docsSection',      navId: 'navDocs'      },
+    { id: 'pricingSection', navId: 'navPricing' },
+    { id: 'docsSection', navId: 'navDocs' },
     { id: 'solutionsSection', navId: 'navSolutions' },
   ];
 
@@ -168,9 +168,9 @@ function scrollToPricing(event) {
 // ── Theme ────────────────────────────────────────────────────────
 function toggleTheme() {
   document.body.classList.toggle('dark');
-  const sun  = document.getElementById('iconSun');
+  const sun = document.getElementById('iconSun');
   const moon = document.getElementById('iconMoon');
-  if (sun)  sun.style.display  = document.body.classList.contains('dark') ? '' : 'none';
+  if (sun) sun.style.display = document.body.classList.contains('dark') ? '' : 'none';
   if (moon) moon.style.display = document.body.classList.contains('dark') ? 'none' : '';
 }
 
@@ -202,8 +202,8 @@ document.querySelectorAll('.ctab').forEach(btn => {
 // ── Color Sync ────────────────────────────────────────────────────
 function bindColorPair(pickerId, hexId, previewId) {
   const picker = document.getElementById(pickerId);
-  const hex    = document.getElementById(hexId);
-  const prev   = document.getElementById(previewId);
+  const hex = document.getElementById(hexId);
+  const prev = document.getElementById(previewId);
 
   picker.addEventListener('input', () => {
     hex.value = picker.value;
@@ -292,7 +292,7 @@ function buildData() {
       break;
     case 'vcard': {
       const fn = val('f-vfn'), ln = val('f-vln');
-      let v  = `BEGIN:VCARD\nVERSION:3.0\nN:${ln};${fn};;;\nFN:${fn} ${ln}`;
+      let v = `BEGIN:VCARD\nVERSION:3.0\nN:${ln};${fn};;;\nFN:${fn} ${ln}`;
       const o = val('f-vorg'), p = val('f-vphone'), e = val('f-vemail'), w = val('f-vweb');
       if (o) v += `\nORG:${o}`;
       if (p) v += `\nTEL;TYPE=CELL:${p}`;
@@ -353,45 +353,45 @@ let activeGradientKey = 'solid';
 
 const GRADIENT_PRESETS = {
   // 1. Sunset Spectrum
-  sunset:       ['#00e5ff', '#2979ff', '#aa00ff', '#ff1744'],
+  sunset: ['#00e5ff', '#2979ff', '#aa00ff', '#ff1744'],
   // 2. Cosmic Purple
   'purple-pink': ['#7c4dff', '#e040fb', '#ff4081', '#ff9100'],
   // 3. Cyber Neon
-  'neon-cyan':   ['#00e676', '#00b0ff', '#651fff', '#3d5afe'],
+  'neon-cyan': ['#00e676', '#00b0ff', '#651fff', '#3d5afe'],
   // 4. Golden Blaze
   'golden-fire': ['#ffea00', '#ff9100', '#ff3d00', '#dd2c00'],
   // 5. Emerald Forest
-  emerald:       ['#aeea00', '#00e676', '#00bfa5', '#00838f'],
+  emerald: ['#aeea00', '#00e676', '#00bfa5', '#00838f'],
   // 6. Aurora Borealis
-  aurora:        ['#00f2fe', '#4facfe', '#00c6ff', '#0072ff'],
+  aurora: ['#00f2fe', '#4facfe', '#00c6ff', '#0072ff'],
   // 7. Tropical Dusk
-  tropical:      ['#ff0844', '#ffb199', '#f12711', '#f5af19'],
+  tropical: ['#ff0844', '#ffb199', '#f12711', '#f5af19'],
   // 8. Berry Sorbet
-  berry:         ['#b92b27', '#1565c0', '#8e24aa', '#d81b60'],
+  berry: ['#b92b27', '#1565c0', '#8e24aa', '#d81b60'],
   // 9. Ocean Deep
-  ocean:         ['#02aab0', '#00cdac', '#0072ff', '#00c6ff'],
+  ocean: ['#02aab0', '#00cdac', '#0072ff', '#00c6ff'],
   // 10. Flaming Phoenix
-  phoenix:       ['#f857a6', '#ff5858', '#ff9966', '#ff5e62'],
+  phoenix: ['#f857a6', '#ff5858', '#ff9966', '#ff5e62'],
   // 11. Midnight Violet
-  violet:        ['#30cfd0', '#330867', '#7f00ff', '#e100ff'],
+  violet: ['#30cfd0', '#330867', '#7f00ff', '#e100ff'],
   // 12. Citrus Burst
-  citrus:        ['#f7971e', '#ffd200', '#85d700', '#12d800'],
+  citrus: ['#f7971e', '#ffd200', '#85d700', '#12d800'],
   // 13. Electric Candy
-  candy:         ['#f107a3', '#7b2ff7', '#00c6ff', '#0072ff'],
+  candy: ['#f107a3', '#7b2ff7', '#00c6ff', '#0072ff'],
   // 14. Mystic Haze
-  mystic:        ['#50cc7f', '#f5d100', '#ff007f', '#7f00ff'],
+  mystic: ['#50cc7f', '#f5d100', '#ff007f', '#7f00ff'],
   // 15. Royal Gold
-  gold:          ['#bf953f', '#fcf6ba', '#b38728', '#fbf5b7'],
+  gold: ['#bf953f', '#fcf6ba', '#b38728', '#fbf5b7'],
   // 16. Cyberpunk Neon
-  cyberpunk:     ['#ff007f', '#00f6ff', '#9b51e0', '#ff0055'],
+  cyberpunk: ['#ff007f', '#00f6ff', '#9b51e0', '#ff0055'],
   // 17. Peach Breeze
-  peach:         ['#ff9a9e', '#fecfef', '#a1c4fd', '#c2e9fb'],
+  peach: ['#ff9a9e', '#fecfef', '#a1c4fd', '#c2e9fb'],
   // 18. Volcano Lava
-  lava:          ['#eb3349', '#f45c43', '#eaafc8', '#654ea3'],
+  lava: ['#eb3349', '#f45c43', '#eaafc8', '#654ea3'],
   // 19. Mint Chocolate
-  mint:          ['#00b4db', '#0083b0', '#11998e', '#38ef7d'],
+  mint: ['#00b4db', '#0083b0', '#11998e', '#38ef7d'],
   // 20. Ultra Violet
-  ultraviolet:   ['#654ea3', '#eaafc8', '#d53369', '#cbad6d'],
+  ultraviolet: ['#654ea3', '#eaafc8', '#d53369', '#cbad6d'],
 };
 
 document.querySelectorAll('.gradient-chip').forEach(btn => {
@@ -405,10 +405,10 @@ document.querySelectorAll('.gradient-chip').forEach(btn => {
 
 // ── Generate QR Code ──────────────────────────────────────────────
 function generateQR() {
-  const data   = buildData();
-  const fg     = document.getElementById('c-fg').value;
-  const bg     = document.getElementById('c-bg').value;
-  const size   = parseInt(document.getElementById('q-size').value) || 400;
+  const data = buildData();
+  const fg = document.getElementById('c-fg').value;
+  const bg = document.getElementById('c-bg').value;
+  const size = parseInt(document.getElementById('q-size').value) || 400;
   const eclKey = document.getElementById('q-ecl').value;
 
   const levelMap = {
@@ -424,11 +424,11 @@ function generateQR() {
 
   try {
     new QRCode(container, {
-      text:         data,
-      width:        size,
-      height:       size,
-      colorDark:    activeGradientKey !== 'solid' ? '#000000' : fg,
-      colorLight:   bg,
+      text: data,
+      width: size,
+      height: size,
+      colorDark: activeGradientKey !== 'solid' ? '#000000' : fg,
+      colorLight: bg,
       correctLevel: levelMap[eclKey] || QRCode.CorrectLevel.H,
     });
   } catch (e) {
@@ -438,8 +438,8 @@ function generateQR() {
   }
 
   // If gradient mode is enabled, apply gradient fill to canvas
-  setTimeout(() => {
-    applyGradientToCanvas();
+  setTimeout(async () => {
+    await applyGradientToCanvas();
     drawEmbeddedLogoOnCanvas();
   }, 25);
 
@@ -448,67 +448,76 @@ function generateQR() {
 }
 
 function applyGradientToCanvas() {
-  if (activeGradientKey === 'solid') return;
-  const container = document.getElementById('qrCanvas');
-  let canvas = container.querySelector('canvas');
-  const img = container.querySelector('img');
+  return new Promise((resolve) => {
+    if (activeGradientKey === 'solid') return resolve();
+    const container = document.getElementById('qrCanvas');
+    let canvas = container.querySelector('canvas');
+    const img = container.querySelector('img');
 
-  const size = parseInt(document.getElementById('q-size').value) || 400;
-  const gradColors = GRADIENT_PRESETS[activeGradientKey];
-  if (!gradColors) return;
+    const size = parseInt(document.getElementById('q-size').value) || 400;
+    const gradColors = GRADIENT_PRESETS[activeGradientKey];
+    if (!gradColors) return resolve();
 
-  const processCanvas = (cvs) => {
-    const ctx = cvs.getContext('2d');
-    const imgData = ctx.getImageData(0, 0, cvs.width, cvs.height);
-    const data = imgData.data;
+    const processCanvas = (cvs) => {
+      const ctx = cvs.getContext('2d');
+      const imgData = ctx.getImageData(0, 0, cvs.width, cvs.height);
+      const data = imgData.data;
 
-    const tempCanvas = document.createElement('canvas');
-    tempCanvas.width = cvs.width;
-    tempCanvas.height = cvs.height;
-    const tCtx = tempCanvas.getContext('2d');
-    const grad = tCtx.createLinearGradient(0, 0, cvs.width, cvs.height);
+      const tempCanvas = document.createElement('canvas');
+      tempCanvas.width = cvs.width;
+      tempCanvas.height = cvs.height;
+      const tCtx = tempCanvas.getContext('2d');
+      const grad = tCtx.createLinearGradient(0, 0, cvs.width, cvs.height);
 
-    const step = 1 / (gradColors.length - 1);
-    gradColors.forEach((col, idx) => {
-      grad.addColorStop(idx * step, col);
-    });
+      const step = 1 / (gradColors.length - 1);
+      gradColors.forEach((col, idx) => {
+        grad.addColorStop(idx * step, col);
+      });
 
-    tCtx.fillStyle = grad;
-    tCtx.fillRect(0, 0, cvs.width, cvs.height);
-    const gradData = tCtx.getImageData(0, 0, cvs.width, cvs.height).data;
+      tCtx.fillStyle = grad;
+      tCtx.fillRect(0, 0, cvs.width, cvs.height);
+      const gradData = tCtx.getImageData(0, 0, cvs.width, cvs.height).data;
 
-    for (let i = 0; i < data.length; i += 4) {
-      const r = data[i], g = data[i+1], b = data[i+2];
-      // Dark QR pixel check
-      if (r < 120 && g < 120 && b < 120) {
-        data[i]     = gradData[i];     // Red
-        data[i+1]   = gradData[i+1];   // Green
-        data[i+2]   = gradData[i+2];   // Blue
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i], g = data[i + 1], b = data[i + 2];
+        // Dark QR pixel check
+        if (r < 120 && g < 120 && b < 120) {
+          data[i] = gradData[i];     // Red
+          data[i + 1] = gradData[i + 1];   // Green
+          data[i + 2] = gradData[i + 2];   // Blue
+        }
       }
-    }
-    ctx.putImageData(imgData, 0, 0);
+      ctx.putImageData(imgData, 0, 0);
 
-    if (img) {
-      img.src = cvs.toDataURL();
-    }
-  };
-
-  if (canvas) {
-    processCanvas(canvas);
-  } else if (img) {
-    const cvs = document.createElement('canvas');
-    cvs.width = size;
-    cvs.height = size;
-    const ctx = cvs.getContext('2d');
-    const imageObj = new Image();
-    imageObj.onload = () => {
-      ctx.drawImage(imageObj, 0, 0, size, size);
-      processCanvas(cvs);
-      container.appendChild(cvs);
-      img.style.display = 'none';
+      if (img) {
+        try {
+          img.src = cvs.toDataURL();
+        } catch (e) { }
+      }
     };
-    imageObj.src = img.src;
-  }
+
+    if (canvas) {
+      processCanvas(canvas);
+      resolve();
+    } else if (img) {
+      const cvs = document.createElement('canvas');
+      cvs.width = size;
+      cvs.height = size;
+      const ctx = cvs.getContext('2d');
+      const imageObj = new Image();
+      imageObj.onload = () => {
+        ctx.drawImage(imageObj, 0, 0, size, size);
+        processCanvas(cvs);
+        container.appendChild(cvs);
+        img.style.display = 'none';
+        resolve();
+      };
+      imageObj.onerror = resolve;
+      imageObj.src = img.src;
+    } else {
+      resolve();
+    }
+  });
 }
 
 // ── Native Canvas Embedded Logo Rendering ─────────────────────────
@@ -523,10 +532,10 @@ function drawEmbeddedLogoOnCanvas() {
   const ctx = canvas.getContext('2d');
   const size = canvas.width;
 
-  const lSize = Math.round(size * 0.22);
-  const lx    = (size - lSize) / 2;
-  const ly    = (size - lSize) / 2;
-  const pad   = 8;
+  const lSize = Math.round(size * 0.28);
+  const lx = (size - lSize) / 2;
+  const ly = (size - lSize) / 2;
+  const pad = 8;
 
   // Draw clean rounded white background badge on canvas
   ctx.fillStyle = '#ffffff';
@@ -544,19 +553,25 @@ function drawEmbeddedLogoOnCanvas() {
   ctx.lineWidth = 1.5;
   ctx.stroke();
 
-  if (activeLogoKey === 'custom' && customLogoURL) {
+  if ((activeLogoKey === 'custom' && customLogoURL) || activeLogoKey === 'avenqr') {
+    const src = activeLogoKey === 'avenqr' ? 'AvenQR.png' : customLogoURL;
     const img = new Image();
     img.onload = () => {
       ctx.drawImage(img, lx, ly, lSize, lSize);
-      if (imgEl) imgEl.src = canvas.toDataURL();
+      if (imgEl) {
+        try { imgEl.src = canvas.toDataURL(); } catch (e) { }
+      }
     };
-    img.src = customLogoURL;
+    img.onerror = () => console.error("Failed to load logo image");
+    img.src = src;
   } else if (LOGO_ICONS[activeLogoKey]) {
     ctx.font = `600 ${Math.round(lSize * 0.65)}px sans-serif`;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.fillText(LOGO_ICONS[activeLogoKey], size / 2, size / 2 + 1);
-    if (imgEl) imgEl.src = canvas.toDataURL();
+    if (imgEl) {
+      try { imgEl.src = canvas.toDataURL(); } catch (e) { }
+    }
   }
 }
 
@@ -572,14 +587,14 @@ document.querySelectorAll('.field__input').forEach(el => {
 // ── Get full composite image as DataURL ───────────────────────────
 async function getFinalPNG() {
   const size = parseInt(document.getElementById('q-size').value) || 400;
-  const bg   = document.getElementById('c-bg').value;
+  const bg = document.getElementById('c-bg').value;
 
   const container = document.getElementById('qrCanvas');
   const qrEl = container.querySelector('canvas') || container.querySelector('img');
   if (!qrEl) return null;
 
   const canvas = document.createElement('canvas');
-  canvas.width  = size;
+  canvas.width = size;
   canvas.height = size;
   const ctx = canvas.getContext('2d');
 
@@ -591,19 +606,21 @@ async function getFinalPNG() {
 
   // Overlay logo if any
   if (activeLogoKey !== 'none') {
-    const lSize = Math.round(size * 0.2);
-    const lx    = (size - lSize) / 2;
-    const ly    = (size - lSize) / 2;
-    const pad   = 6;
+    const lSize = Math.round(size * 0.28);
+    const lx = (size - lSize) / 2;
+    const ly = (size - lSize) / 2;
+    const pad = 8;
 
     ctx.fillStyle = '#ffffff';
     roundRect(ctx, lx - pad, ly - pad, lSize + pad * 2, lSize + pad * 2, 10);
 
-    if (activeLogoKey === 'custom' && customLogoURL) {
+    if ((activeLogoKey === 'custom' && customLogoURL) || activeLogoKey === 'avenqr') {
+      const src = activeLogoKey === 'avenqr' ? 'AvenQR.png' : customLogoURL;
       await new Promise(res => {
         const img = new Image();
         img.onload = () => { ctx.drawImage(img, lx, ly, lSize, lSize); res(); };
-        img.src = customLogoURL;
+        img.onerror = res;
+        img.src = src;
       });
     } else if (LOGO_ICONS[activeLogoKey]) {
       ctx.font = `${Math.round(lSize * 0.65)}px sans-serif`;
@@ -613,7 +630,12 @@ async function getFinalPNG() {
     }
   }
 
-  return canvas.toDataURL('image/png');
+  try {
+    return canvas.toDataURL('image/png');
+  } catch (e) {
+    console.error("Canvas toDataURL failed:", e);
+    return null;
+  }
 }
 
 function drawElement(ctx, el, x, y, w, h) {
@@ -651,7 +673,7 @@ async function downloadPNG() {
   setLoading('dlPngBtn', false);
   if (!dataUrl) { showToast('❌ Generate a QR code first'); return; }
   const a = document.createElement('a');
-  a.href     = dataUrl;
+  a.href = dataUrl;
   a.download = `qrforge-${activeType}-${Date.now()}.png`;
   a.click();
   showToast('⬇️ PNG downloaded!');
@@ -666,9 +688,9 @@ async function downloadPDF() {
 
   try {
     const { jsPDF } = window.jspdf;
-    const pdf  = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const pdf = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
     const imgW = 110, imgH = 110;
-    const x    = (210 - imgW) / 2;
+    const x = (210 - imgW) / 2;
 
     pdf.setFont('helvetica', 'bold');
     pdf.setFontSize(18);
@@ -703,7 +725,7 @@ async function copyQRImage() {
   const dataUrl = await getFinalPNG();
   if (!dataUrl) { showToast('❌ No QR to copy'); return; }
   try {
-    const res  = await fetch(dataUrl);
+    const res = await fetch(dataUrl);
     const blob = await res.blob();
     if (navigator.clipboard?.write) {
       await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);

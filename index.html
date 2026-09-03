@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <!-- Primary SEO Meta Tags -->
   <title>AvenQR — 100% Free QR Code Generator | No Sign-Up & Permanent Codes</title>
   <meta name="title" content="AvenQR — 100% Free QR Code Generator | No Sign-Up & Permanent Codes" />
@@ -24,7 +24,8 @@
   <link rel="canonical" href="https://deepakkumar7388.github.io/AvenQR/" />
 
   <!-- Favicon & Brand Theme -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" href="AvenQR.png" />
+  <link rel="apple-touch-icon" href="AvenQR.png" />
   <meta name="theme-color" content="#059669" />
   <meta name="msapplication-TileColor" content="#059669" />
 
@@ -35,7 +36,7 @@
   <meta property="og:title" content="AvenQR — 100% Free QR Code Generator (No Sign-Up Needed)" />
   <meta property="og:description"
     content="Generate free high-resolution QR codes with custom logos, gradient colors, and dynamic links. Download vector PDF, SVG, and PNG instantly. No account required." />
-  <meta property="og:image" content="https://deepakkumar7388.github.io/AvenQR/favicon.svg" />
+  <meta property="og:image" content="https://deepakkumar7388.github.io/AvenQR/AvenQR.png" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Meta Tags -->
@@ -44,7 +45,7 @@
   <meta name="twitter:title" content="AvenQR — 100% Free QR Code Generator (No Sign-Up Needed)" />
   <meta name="twitter:description"
     content="Generate free high-resolution QR codes with custom logos, gradient colors, and dynamic links. Download vector PDF, SVG, and PNG instantly." />
-  <meta name="twitter:image" content="https://deepakkumar7388.github.io/AvenQR/favicon.svg" />
+  <meta name="twitter:image" content="https://deepakkumar7388.github.io/AvenQR/AvenQR.png" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -177,33 +178,22 @@
 
 <body>
 
-  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-     HEADER NAV (FLY.IO STYLE FLOATING ISLAND PILL)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
   <header class="site-header">
     <div class="site-header__inner">
       <!-- LOGO -->
       <a href="#" class="logo">
-        <svg width="34" height="34" viewBox="0 0 30 30" fill="none">
-          <rect x="2" y="2" width="11" height="11" rx="3" fill="#059669" />
-          <rect x="5" y="5" width="5" height="5" rx="1" fill="#fff" />
-          <rect x="17" y="2" width="11" height="11" rx="3" fill="#059669" />
-          <rect x="20" y="5" width="5" height="5" rx="1" fill="#fff" />
-          <rect x="2" y="17" width="11" height="11" rx="3" fill="#059669" />
-          <rect x="5" y="20" width="5" height="5" rx="1" fill="#fff" />
-          <rect x="17" y="17" width="5" height="5" rx="1.5" fill="#059669" />
-          <rect x="23" y="17" width="5" height="5" rx="1.5" fill="#059669" />
-          <rect x="17" y="23" width="5" height="5" rx="1.5" fill="#059669" />
-          <rect x="23" y="23" width="5" height="5" rx="1.5" fill="#059669" />
-        </svg>
-        <span class="logo__text">Awen<strong>QR</strong></span>
+        <img src="AvenQR.png" alt="AvenQR Logo" class="brand-logo-img" width="38" height="38" />
+        <span class="logo__text">Aven<strong>QR</strong></span>
       </a>
 
-      <!-- CENTERED FLY.IO FLOATING PILL ISLAND -->
+      <!-- CENTERED FLY.IO FLOATING ISLAND PILL -->
       <nav class="fly-nav-island">
-        <a href="javascript:void(0)" class="fly-nav-item active" id="navFreeGen" onclick="switchNavMode('url')">Free Generator</a>
-        <a href="javascript:void(0)" class="fly-nav-item" id="navDynamicGen" onclick="switchNavMode('dynamic')">Dynamic QR ⚡</a>
-        <a href="javascript:void(0)" class="fly-nav-item" id="navSolutions" onclick="scrollToSolutions(event)">Solutions</a>
+        <a href="javascript:void(0)" class="fly-nav-item active" id="navFreeGen" onclick="switchNavMode('url')">Free
+          Generator</a>
+        <a href="javascript:void(0)" class="fly-nav-item" id="navDynamicGen" onclick="switchNavMode('dynamic')">Dynamic
+          QR ⚡</a>
+        <a href="javascript:void(0)" class="fly-nav-item" id="navSolutions"
+          onclick="scrollToSolutions(event)">Solutions</a>
         <a href="javascript:void(0)" class="fly-nav-item" id="navDocs" onclick="scrollToDocs(event)">Docs</a>
         <a href="javascript:void(0)" class="fly-nav-item" id="navPricing" onclick="scrollToPricing(event)">Pricing</a>
         <a href="javascript:void(0)" class="fly-nav-item" id="navFaq" onclick="scrollToFaq(event)">FAQ</a>
@@ -212,11 +202,26 @@
       <!-- RIGHT CAPSULE ACTIONS -->
       <div class="header-actions">
         <button class="btn-ghost" id="themeBtn" onclick="toggleTheme()" title="Toggle Theme">
-          <svg id="iconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg id="iconSun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" style="display:none">
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" />
+            <line x1="12" y1="21" x2="12" y2="23" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+            <line x1="1" y1="12" x2="3" y2="12" />
+            <line x1="21" y1="12" x2="23" y2="12" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+          </svg>
+          <svg id="iconMoon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
         </button>
         <div class="fly-action-capsule">
-          <button class="btn-primary-pill" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">100% Free Forever</button>
+          <button class="btn-primary-pill" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">100% Free
+            Forever</button>
         </div>
       </div>
     </div>
@@ -232,7 +237,8 @@
         100% Free Online QR Generator • No Sign-Up Needed
       </div>
       <h1 class="page-hero__title"><span class="page-hero__title-gradient">Free Custom QR Code Generator</span></h1>
-      <p class="page-hero__sub">Create, customize with logos & download high-resolution QR codes in seconds — 100% Free & Lifetime Validity</p>
+      <p class="page-hero__sub">Create, customize with logos & download high-resolution QR codes in seconds — 100% Free
+        & Lifetime Validity</p>
       <div class="hero-trust-row">
         <span class="trust-chip"><span class="chip-check">✓</span> No Account Required</span>
         <span class="trust-chip"><span class="chip-check">✓</span> Vector PDF & SVG Export</span>
@@ -632,13 +638,15 @@
               <p class="field__label" style="margin-bottom:10px">Add a logo to center of QR code</p>
               <div class="logo-grid" id="logoGrid">
                 <button class="logo-chip is-active" data-logo="none" title="No logo">—</button>
-                <button class="logo-chip" data-logo="globe" title="Globe">ðŸŒ</button>
-                <button class="logo-chip" data-logo="mail" title="Email">âœ‰ï¸</button>
+                <button class="logo-chip logo-chip--brand" data-logo="avenqr" title="AvenQR Official Logo">
+                  <img src="AvenQR.png" alt="AvenQR" class="chip-brand-img" />
+                </button>
+                <button class="logo-chip" data-logo="globe" title="Globe">🌐</button>
+                <button class="logo-chip" data-logo="mail" title="Email">✉️</button>
                 <button class="logo-chip" data-logo="phone" title="Phone">📞</button>
                 <button class="logo-chip" data-logo="chat" title="Chat">💬</button>
-                <button class="logo-chip" data-logo="wifi" title="Wi-Fi">ðŸ“¶</button>
-                <button class="logo-chip" data-logo="star" title="Star">â­</button>
-                <button class="logo-chip" data-logo="heart" title="Heart">â¤ï¸</button>
+                <button class="logo-chip" data-logo="star" title="Star">⭐</button>
+                <button class="logo-chip" data-logo="heart" title="Heart">❤️</button>
               </div>
               <label class="upload-zone" for="f-logofile">
                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -756,11 +764,15 @@
     <div class="solutions-section__inner">
       <div class="solutions-head">
         <div class="solutions-badge-pill">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon
+              points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+          </svg>
           💡 User Guide — How It Works
         </div>
         <h2 class="solutions-title">Create Custom QR Codes in 4 Easy Steps</h2>
-        <p class="solutions-subtitle">Easily generate free static QR codes or high-conversion 4-color gradient dynamic QR codes in seconds.</p>
+        <p class="solutions-subtitle">Easily generate free static QR codes or high-conversion 4-color gradient dynamic
+          QR codes in seconds.</p>
       </div>
 
       <!-- 4 STEPS GRID -->
@@ -769,44 +781,62 @@
           <div class="step-head-row">
             <span class="step-badge-num">Step 01</span>
             <div class="step-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
             </div>
           </div>
           <h3 class="guide-heading">1. Enter Your Content</h3>
-          <p class="guide-desc">Select what you want to embed: Website Link, Plain Text, Contact Card (vCard), Email, Phone, WhatsApp, or Wi-Fi network details.</p>
+          <p class="guide-desc">Select what you want to embed: Website Link, Plain Text, Contact Card (vCard), Email,
+            Phone, WhatsApp, or Wi-Fi network details.</p>
         </div>
 
         <div class="guide-step">
           <div class="step-head-row">
             <span class="step-badge-num">Step 02</span>
             <div class="step-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
             </div>
           </div>
           <h3 class="guide-heading">2. Choose Generator Mode</h3>
-          <p class="guide-desc"><strong>Free Generator:</strong> Classic black & white static QR.<br><strong>Dynamic QR ⚡:</strong> Editable target destination + 20 Telegram-style 4-color gradient themes!</p>
+          <p class="guide-desc"><strong>Free Generator:</strong> Classic black & white static QR.<br><strong>Dynamic QR
+              ⚡:</strong> Editable target destination + 20 Telegram-style 4-color gradient themes!</p>
         </div>
 
         <div class="guide-step">
           <div class="step-head-row">
             <span class="step-badge-num">Step 03</span>
             <div class="step-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a7 7 0 1 0 10 10"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 2a7 7 0 1 0 10 10" />
+              </svg>
             </div>
           </div>
           <h3 class="guide-heading">3. Customize & Brand</h3>
-          <p class="guide-desc">Select from 20 vibrant 4-color gradient presets, upload your custom brand logo, and adjust print resolution.</p>
+          <p class="guide-desc">Select from 20 vibrant 4-color gradient presets, upload your custom brand logo, and
+            adjust print resolution.</p>
         </div>
 
         <div class="guide-step">
           <div class="step-head-row">
             <span class="step-badge-num">Step 04</span>
             <div class="step-icon-box">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
             </div>
           </div>
           <h3 class="guide-heading">4. 1-Click Download</h3>
-          <p class="guide-desc">Instantly download your ready QR code as a High-Resolution PNG Image or print-ready PDF document with 1-click.</p>
+          <p class="guide-desc">Instantly download your ready QR code as a High-Resolution PNG Image or print-ready PDF
+            document with 1-click.</p>
         </div>
       </div>
 
@@ -822,18 +852,23 @@
       <!-- SECTION HEADER -->
       <div class="section-head">
         <div class="section-badge docs-badge">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
           Developer API & Docs
         </div>
         <h2 class="section-title">Integrate in Minutes</h2>
-        <p class="section-subtitle">Generate, customize, and export high-quality QR codes programmatically via a simple REST API.</p>
+        <p class="section-subtitle">Generate, customize, and export high-quality QR codes programmatically via a simple
+          REST API.</p>
       </div>
 
       <!-- TOP FEATURE STRIP -->
       <div class="docs-strip">
         <div class="docs-strip-item">
           <span class="docs-strip-icon">⚡</span>
-          <span>< 50ms response time</span>
+          <span>
+            < 50ms response time</span>
         </div>
         <div class="docs-strip-divider"></div>
         <div class="docs-strip-item">
@@ -879,8 +914,12 @@
   <span class="code-key">"scans"</span>: <span class="code-val">0</span>
 }</pre>
           <div class="code-panel-footer">
-            <button class="code-copy-btn" onclick="navigator.clipboard.writeText('GET https://api.awenqr.com/v1/create?data=https://yoursite.com&size=512&gradient=sunset&ecl=H')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+            <button class="code-copy-btn"
+              onclick="navigator.clipboard.writeText('GET https://api.awenqr.com/v1/create?data=https://yoursite.com&size=512&gradient=sunset&ecl=H')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+              </svg>
               Copy
             </button>
           </div>
@@ -891,7 +930,10 @@
 
           <div class="docs-card">
             <div class="docs-card-icon" style="background: rgba(16,185,129,0.1); color: #10b981;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
             </div>
             <div>
               <h4 class="docs-card-title">REST API</h4>
@@ -901,17 +943,23 @@
 
           <div class="docs-card">
             <div class="docs-card-icon" style="background: rgba(59,130,246,0.1); color: #3b82f6;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
             </div>
             <div>
               <h4 class="docs-card-title">SDKs</h4>
-              <p class="docs-card-desc">Official libraries for JS, Node, Python, PHP, Ruby & Go — available on GitHub.</p>
+              <p class="docs-card-desc">Official libraries for JS, Node, Python, PHP, Ruby & Go — available on GitHub.
+              </p>
             </div>
           </div>
 
           <div class="docs-card">
             <div class="docs-card-icon" style="background: rgba(139,92,246,0.1); color: #8b5cf6;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
             </div>
             <div>
               <h4 class="docs-card-title">Webhooks</h4>
@@ -921,11 +969,16 @@
 
           <div class="docs-card">
             <div class="docs-card-icon" style="background: rgba(245,158,11,0.1); color: #f59e0b;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
             </div>
             <div>
               <h4 class="docs-card-title">Custom Styling</h4>
-              <p class="docs-card-desc">Pass hex colors, gradient keys, corner radius, logo URLs in each API request.</p>
+              <p class="docs-card-desc">Pass hex colors, gradient keys, corner radius, logo URLs in each API request.
+              </p>
             </div>
           </div>
 
@@ -1029,7 +1082,9 @@
 
       <!-- MONEY-BACK NOTE -->
       <div class="pricing-note">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
         100% Free Core Tools · No Credit Card Required · Unlimited QR Generation
       </div>
 
@@ -1046,7 +1101,8 @@
           ❓ Frequently Asked Questions
         </div>
         <h2 class="section-title">Everything You Need to Know</h2>
-        <p class="section-subtitle">100% Free online QR code creator with no sign-up or hidden costs. Here is how AvenQR works.</p>
+        <p class="section-subtitle">100% Free online QR code creator with no sign-up or hidden costs. Here is how AvenQR
+          works.</p>
       </div>
 
       <div class="faq-grid">
@@ -1056,7 +1112,9 @@
             <span class="faq-chevron">▾</span>
           </summary>
           <div class="faq-answer">
-            <p><strong>Yes, 100% free forever!</strong> There are no credit card requirements, no hidden subscriptions, and no scan limits. You can generate, customize with logos, and download unlimited QR codes for personal, business, marketing, and print use completely free.</p>
+            <p><strong>Yes, 100% free forever!</strong> There are no credit card requirements, no hidden subscriptions,
+              and no scan limits. You can generate, customize with logos, and download unlimited QR codes for personal,
+              business, marketing, and print use completely free.</p>
           </div>
         </details>
 
@@ -1066,7 +1124,9 @@
             <span class="faq-chevron">▾</span>
           </summary>
           <div class="faq-answer">
-            <p><strong>No sign-up or registration is needed.</strong> You can start creating custom QR codes immediately in your browser. Enter your URL, text, WiFi, or contact details, style your colors, and download instantly without logging in.</p>
+            <p><strong>No sign-up or registration is needed.</strong> You can start creating custom QR codes immediately
+              in your browser. Enter your URL, text, WiFi, or contact details, style your colors, and download instantly
+              without logging in.</p>
           </div>
         </details>
 
@@ -1076,7 +1136,9 @@
             <span class="faq-chevron">▾</span>
           </summary>
           <div class="faq-answer">
-            <p><strong>Static QR codes never expire!</strong> Codes created for Website URLs, WiFi passwords, vCard digital business contacts, WhatsApp chats, SMS, and Plain text will function permanently for a lifetime with unlimited scans.</p>
+            <p><strong>Static QR codes never expire!</strong> Codes created for Website URLs, WiFi passwords, vCard
+              digital business contacts, WhatsApp chats, SMS, and Plain text will function permanently for a lifetime
+              with unlimited scans.</p>
           </div>
         </details>
 
@@ -1086,7 +1148,9 @@
             <span class="faq-chevron">▾</span>
           </summary>
           <div class="faq-answer">
-            <p><strong>Yes, full visual customization is 100% free.</strong> Upload your brand logo (PNG, JPG, SVG), choose custom foreground/background colors, apply 20+ multi-color gradient themes, and adjust corner eye styles at zero cost.</p>
+            <p><strong>Yes, full visual customization is 100% free.</strong> Upload your brand logo (PNG, JPG, SVG),
+              choose custom foreground/background colors, apply 20+ multi-color gradient themes, and adjust corner eye
+              styles at zero cost.</p>
           </div>
         </details>
 
@@ -1096,7 +1160,9 @@
             <span class="faq-chevron">▾</span>
           </summary>
           <div class="faq-answer">
-            <p>You can export in <strong>High-Resolution PNG</strong> (ideal for websites and social media), <strong>Vector SVG</strong>, and <strong>Print-Ready Vector PDF</strong> (crisp vector format for high-DPI print shops, flyers, brochures, packaging, and stickers).</p>
+            <p>You can export in <strong>High-Resolution PNG</strong> (ideal for websites and social media),
+              <strong>Vector SVG</strong>, and <strong>Print-Ready Vector PDF</strong> (crisp vector format for high-DPI
+              print shops, flyers, brochures, packaging, and stickers).</p>
           </div>
         </details>
 
@@ -1106,7 +1172,9 @@
             <span class="faq-chevron">▾</span>
           </summary>
           <div class="faq-answer">
-            <p>AvenQR supports all major content types: <strong>Website URLs, WiFi Network Auto-Connect, vCard 3.0 Business Contacts, WhatsApp Direct Message, SMS, Email, Plain Text, and Dynamic Redirect Landing Pages</strong>.</p>
+            <p>AvenQR supports all major content types: <strong>Website URLs, WiFi Network Auto-Connect, vCard 3.0
+                Business Contacts, WhatsApp Direct Message, SMS, Email, Plain Text, and Dynamic Redirect Landing
+                Pages</strong>.</p>
           </div>
         </details>
       </div>
@@ -1117,7 +1185,8 @@
           <h3 class="faq-cta-title">Ready to create your custom QR code?</h3>
           <p class="faq-cta-sub">No credit card • No sign-up • Instant high-resolution vector download</p>
         </div>
-        <button class="btn-primary-pill" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Create Free QR Code ⚡</button>
+        <button class="btn-primary-pill" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Create Free QR Code
+          ⚡</button>
       </div>
     </div>
   </section>
@@ -1129,25 +1198,15 @@
     <div class="footer-top-accent"></div>
     <div class="footer-inner">
       <div class="footer-grid">
-        
+
         <!-- BRAND COL -->
         <div class="footer-col footer-col--brand">
           <a href="#" class="footer-logo">
-            <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
-              <rect x="2" y="2" width="11" height="11" rx="3" fill="#10b981" />
-              <rect x="5" y="5" width="5" height="5" rx="1" fill="#0f172a" />
-              <rect x="17" y="2" width="11" height="11" rx="3" fill="#10b981" />
-              <rect x="20" y="5" width="5" height="5" rx="1" fill="#0f172a" />
-              <rect x="2" y="17" width="11" height="11" rx="3" fill="#10b981" />
-              <rect x="5" y="20" width="5" height="5" rx="1" fill="#0f172a" />
-              <rect x="17" y="17" width="5" height="5" rx="1.5" fill="#10b981" />
-              <rect x="23" y="17" width="5" height="5" rx="1.5" fill="#10b981" />
-              <rect x="17" y="23" width="5" height="5" rx="1.5" fill="#10b981" />
-              <rect x="23" y="23" width="5" height="5" rx="1.5" fill="#10b981" />
-            </svg>
-            <span class="footer-logo-text">Awen<strong>QR</strong></span>
+            <img src="AvenQR.png" alt="AvenQR Logo" class="footer-brand-logo-img" width="34" height="34" />
+            <span class="footer-logo-text">Aven<strong>QR</strong></span>
           </a>
-          <p class="footer-brand-desc">Next-Gen 100% Free QR Code & Dynamic Redirect Suite. Create, customize, and export high-conversion vector QR codes instantly with no registration.</p>
+          <p class="footer-brand-desc">Next-Gen 100% Free QR Code & Dynamic Redirect Suite. Create, customize, and
+            export high-conversion vector QR codes instantly with no registration.</p>
           <div class="footer-status-pill">
             <span class="status-dot"></span>
             100% Free Forever • All Systems Operational
