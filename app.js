@@ -801,8 +801,36 @@ function scrollToFaq(e) {
 // ── Keyboard shortcuts ────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.ctrlKey && e.key === 'Enter') generateQR();
+  if (e.key === 'Escape') closeMobileMenu();
 });
+
+// ── Mobile Menu ───────────────────────────────────────────────────
+function toggleMobileMenu() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  const overlay = document.getElementById('mobileNavOverlay');
+  const btn = document.getElementById('mobileMenuBtn');
+  const isOpen = drawer.classList.contains('is-open');
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    drawer.classList.add('is-open');
+    overlay.classList.add('is-open');
+    btn.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeMobileMenu() {
+  const drawer = document.getElementById('mobileNavDrawer');
+  const overlay = document.getElementById('mobileNavOverlay');
+  const btn = document.getElementById('mobileMenuBtn');
+  if (drawer) drawer.classList.remove('is-open');
+  if (overlay) overlay.classList.remove('is-open');
+  if (btn) btn.classList.remove('is-open');
+  document.body.style.overflow = '';
+}
 
 // ── Initialize ────────────────────────────────────────────────────
 switchNavMode('url');
 generateQR();
+

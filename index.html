@@ -223,7 +223,48 @@
           <button class="btn-primary-pill" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">100% Free
             Forever</button>
         </div>
+        <!-- MOBILE HAMBURGER -->
+        <button class="mobile-hamburger" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
       </div>
+
+      <!-- MOBILE NAV OVERLAY & DRAWER -->
+      <div class="mobile-nav-overlay" id="mobileNavOverlay" onclick="closeMobileMenu()"></div>
+      <nav class="mobile-nav-drawer" id="mobileNavDrawer">
+        <div class="mobile-nav-header">
+          <a href="#" class="logo" onclick="closeMobileMenu()">
+            <img src="AvenQR.png" alt="AvenQR Logo" class="brand-logo-img" width="34" height="34" />
+            <span class="logo__text">Aven<strong>QR</strong></span>
+          </a>
+          <button class="mobile-nav-close" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
+        </div>
+        <div class="mobile-nav-links">
+          <a href="javascript:void(0)" class="mobile-nav-link active" onclick="switchNavMode('url'); closeMobileMenu();">
+            <span class="mobile-nav-icon">🎯</span> Free Generator
+          </a>
+          <a href="javascript:void(0)" class="mobile-nav-link" onclick="switchNavMode('dynamic'); closeMobileMenu();">
+            <span class="mobile-nav-icon">⚡</span> Dynamic QR
+          </a>
+          <a href="javascript:void(0)" class="mobile-nav-link" onclick="scrollToSolutions(event); closeMobileMenu();">
+            <span class="mobile-nav-icon">💡</span> Solutions
+          </a>
+          <a href="javascript:void(0)" class="mobile-nav-link" onclick="scrollToDocs(event); closeMobileMenu();">
+            <span class="mobile-nav-icon">📄</span> Docs
+          </a>
+          <a href="javascript:void(0)" class="mobile-nav-link" onclick="scrollToPricing(event); closeMobileMenu();">
+            <span class="mobile-nav-icon">💎</span> Pricing
+          </a>
+          <a href="javascript:void(0)" class="mobile-nav-link" onclick="scrollToFaq(event); closeMobileMenu();">
+            <span class="mobile-nav-icon">❓</span> FAQ
+          </a>
+        </div>
+        <div class="mobile-nav-footer">
+          <button class="btn-primary-pill" style="width:100%" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); closeMobileMenu();">100% Free Forever</button>
+        </div>
+      </nav>
     </div>
   </header>
 
